@@ -1,0 +1,7 @@
+{"namespace": "com.polidea.gajowy.flink_parquet.avro",
+ "type": "record",
+ "name": "Record",
+ "fields": [
+     {"name": "row", "type": "string"}
+ ]
+}
