@@ -29,16 +29,19 @@ public class Main {
   public static void main(String[] args) throws Exception {
     ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-//    Record sampleRecord = generateSampleObject();
-//
-//    DataSet<Tuple2<Void, Record>> output = putObjectIntoDataSet(env, sampleRecord);
-//
-//    writeAvro(output, "file:///Users/lukasz/flink/parquet");
+    Record sampleRecord = generateSampleObject();
 
-    DataSet<Tuple2<Void, Record>> dataSet = readAvro(env,
-      "file:///Users/lukasz/Projects/apache-beam/parquet-demo/PREFIX");
+    DataSet<Tuple2<Void, Record>> output = putObjectIntoDataSet(env, sampleRecord);
 
-    dataSet.print();
+    writeAvro(output, "file:///Users/lukasz/flink/parquet");
+
+//    DataSet<Tuple2<Void, Record>> dataSet = readAvro(env,
+//      "file:///Users/lukasz/Projects/apache-beam/parquet-demo/PREFIX");
+//
+//    dataSet.print();
+
+
+    env.execute();
   }
 
 
