@@ -22,16 +22,16 @@ public class ParquetRead {
     String filenamePrefix = parameter.get("filenamePrefix");
     Preconditions.checkNotNull(filenamePrefix);
 
-    readParquet(getExecutionEnvironment(),filenamePrefix).print();
+    readParquet(getExecutionEnvironment(), filenamePrefix).print();
   }
 
-  private static DataSource readParquet(
-    ExecutionEnvironment env, String inputPath) throws IOException {
+  private static DataSource readParquet(ExecutionEnvironment env, String inputPath)
+    throws IOException {
 
     Job job = Job.getInstance();
 
-    HadoopInputFormat<Void, Record> hadoopInputFormat
-      = new HadoopInputFormat<>(new AvroParquetInputFormat<>(), Void.class, Record.class, job);
+    HadoopInputFormat<Void, Record> hadoopInputFormat = new HadoopInputFormat<>(
+      new AvroParquetInputFormat<>(), Void.class, Record.class, job);
 
     FileInputFormat.addInputPath(job, new Path(inputPath));
     AvroParquetInputFormat.setAvroReadSchema(job, Record.getClassSchema());

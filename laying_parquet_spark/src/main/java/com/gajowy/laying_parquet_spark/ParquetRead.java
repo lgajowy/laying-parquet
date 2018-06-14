@@ -11,10 +11,7 @@ public class ParquetRead {
       System.exit(1);
     }
 
-    SparkSession spark = SparkSession
-      .builder()
-      .appName("Read parquet files")
-      .getOrCreate();
+    SparkSession spark = SparkSession.builder().appName("Read parquet files").getOrCreate();
 
     Dataset<Row> parquet = spark.read().parquet(args[0]);
 

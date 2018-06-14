@@ -33,9 +33,9 @@ public class ParquetWrite {
     ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
     MapOperator<Record, Tuple2<Void, Record>> recordsInTuples = generateRecords(env)
-      .map(record -> new Tuple2<Void, Record>(null, record))
-      .returns(new TupleTypeInfo<>(TypeExtractor.getForClass(Void.class),
-        TypeExtractor.getForClass(Record.class)));
+      .map(record -> new Tuple2<Void, Record>(null, record)).returns(
+        new TupleTypeInfo<>(TypeExtractor.getForClass(Void.class),
+          TypeExtractor.getForClass(Record.class)));
     writeParquet(recordsInTuples, filenamePrefix);
 
     env.execute();
@@ -45,8 +45,8 @@ public class ParquetWrite {
     throws IOException {
     Job job = Job.getInstance();
 
-    HadoopOutputFormat<Void, Record> hadoopOutputFormat =
-      new HadoopOutputFormat<>(new AvroParquetOutputFormat<Record>(), job);
+    HadoopOutputFormat<Void, Record> hadoopOutputFormat = new HadoopOutputFormat<>(
+      new AvroParquetOutputFormat<Record>(), job);
 
     FileOutputFormat.setOutputPath(job, new Path(outputPath));
     AvroParquetOutputFormat.setSchema(job, Record.getClassSchema());
