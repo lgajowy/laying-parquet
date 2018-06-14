@@ -1,8 +1,6 @@
-package com.polidea.gajowy.flink_parquet;
+package com.polidea.gajowy.laying_parquet;
 
-import com.google.common.collect.Lists;
-import com.polidea.gajowy.flink_parquet.avro.Record;
-import org.apache.avro.Schema;
+import com.polidea.gajowy.laying_parquet.avro.Record;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;

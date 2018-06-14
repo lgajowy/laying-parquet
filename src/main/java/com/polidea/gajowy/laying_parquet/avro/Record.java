@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.polidea.gajowy.flink_parquet.avro;
+package com.polidea.gajowy.laying_parquet.avro;
 
 import org.apache.avro.specific.SpecificData;
 
@@ -11,7 +11,7 @@ import org.apache.avro.specific.SpecificData;
 @org.apache.avro.specific.AvroGenerated
 public class Record extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -1836634319637965847L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Record\",\"namespace\":\"com.polidea.gajowy.flink_parquet.avro\",\"fields\":[{\"name\":\"row\",\"type\":\"string\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Record\",\"namespace\":\"com.polidea.gajowy.laying_parquet.avro\",\"fields\":[{\"name\":\"row\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence row;
 
@@ -68,8 +68,8 @@ public class Record extends org.apache.avro.specific.SpecificRecordBase implemen
    * Creates a new Record RecordBuilder.
    * @return A new Record RecordBuilder
    */
-  public static com.polidea.gajowy.flink_parquet.avro.Record.Builder newBuilder() {
-    return new com.polidea.gajowy.flink_parquet.avro.Record.Builder();
+  public static com.polidea.gajowy.laying_parquet.avro.Record.Builder newBuilder() {
+    return new com.polidea.gajowy.laying_parquet.avro.Record.Builder();
   }
 
   /**
@@ -77,8 +77,8 @@ public class Record extends org.apache.avro.specific.SpecificRecordBase implemen
    * @param other The existing builder to copy.
    * @return A new Record RecordBuilder
    */
-  public static com.polidea.gajowy.flink_parquet.avro.Record.Builder newBuilder(com.polidea.gajowy.flink_parquet.avro.Record.Builder other) {
-    return new com.polidea.gajowy.flink_parquet.avro.Record.Builder(other);
+  public static com.polidea.gajowy.laying_parquet.avro.Record.Builder newBuilder(com.polidea.gajowy.laying_parquet.avro.Record.Builder other) {
+    return new com.polidea.gajowy.laying_parquet.avro.Record.Builder(other);
   }
 
   /**
@@ -86,8 +86,8 @@ public class Record extends org.apache.avro.specific.SpecificRecordBase implemen
    * @param other The existing instance to copy.
    * @return A new Record RecordBuilder
    */
-  public static com.polidea.gajowy.flink_parquet.avro.Record.Builder newBuilder(com.polidea.gajowy.flink_parquet.avro.Record other) {
-    return new com.polidea.gajowy.flink_parquet.avro.Record.Builder(other);
+  public static com.polidea.gajowy.laying_parquet.avro.Record.Builder newBuilder(com.polidea.gajowy.laying_parquet.avro.Record other) {
+    return new com.polidea.gajowy.laying_parquet.avro.Record.Builder(other);
   }
 
   /**
@@ -107,7 +107,7 @@ public class Record extends org.apache.avro.specific.SpecificRecordBase implemen
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.polidea.gajowy.flink_parquet.avro.Record.Builder other) {
+    private Builder(com.polidea.gajowy.laying_parquet.avro.Record.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.row)) {
         this.row = data().deepCopy(fields()[0].schema(), other.row);
@@ -119,7 +119,7 @@ public class Record extends org.apache.avro.specific.SpecificRecordBase implemen
      * Creates a Builder by copying an existing Record instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.polidea.gajowy.flink_parquet.avro.Record other) {
+    private Builder(com.polidea.gajowy.laying_parquet.avro.Record other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.row)) {
         this.row = data().deepCopy(fields()[0].schema(), other.row);
@@ -140,7 +140,7 @@ public class Record extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'row'.
       * @return This builder.
       */
-    public com.polidea.gajowy.flink_parquet.avro.Record.Builder setRow(java.lang.CharSequence value) {
+    public com.polidea.gajowy.laying_parquet.avro.Record.Builder setRow(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.row = value;
       fieldSetFlags()[0] = true;
@@ -160,7 +160,7 @@ public class Record extends org.apache.avro.specific.SpecificRecordBase implemen
       * Clears the value of the 'row' field.
       * @return This builder.
       */
-    public com.polidea.gajowy.flink_parquet.avro.Record.Builder clearRow() {
+    public com.polidea.gajowy.laying_parquet.avro.Record.Builder clearRow() {
       row = null;
       fieldSetFlags()[0] = false;
       return this;
