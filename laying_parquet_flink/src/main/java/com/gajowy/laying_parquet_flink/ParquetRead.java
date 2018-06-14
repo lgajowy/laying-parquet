@@ -1,7 +1,7 @@
-package com.polidea.gajowy.laying_parquet.flink;
+package com.gajowy.laying_parquet_flink;
 
 import com.google.common.base.Preconditions;
-import com.polidea.gajowy.laying_parquet.avro.Record;
+import com.gajowy.laying_parquet_flink.avro.Record;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.hadoop.mapreduce.HadoopInputFormat;
 import org.apache.flink.api.java.operators.DataSource;

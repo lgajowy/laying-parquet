@@ -1,4 +1,4 @@
-{"namespace": "com.polidea.gajowy.laying_parquet.avro",
+{"namespace": "com.gajowy.laying_parquet_flink.avro",
  "type": "record",
  "name": "Record",
  "fields": [
