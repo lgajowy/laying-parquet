@@ -28,14 +28,18 @@ public class ParquetWrite {
   public static void main(String[] args) throws Exception {
     ParameterTool parameter = ParameterTool.fromArgs(args);
     String filenamePrefix = parameter.get("filenamePrefix");
+    String numberOfRecords = parameter.get("numberOfRecords");
     Preconditions.checkNotNull(filenamePrefix);
+    Preconditions.checkNotNull(numberOfRecords);
 
     ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-    MapOperator<Record, Tuple2<Void, Record>> recordsInTuples = generateRecords(env)
-      .map(record -> new Tuple2<Void, Record>(null, record)).returns(
-        new TupleTypeInfo<>(TypeExtractor.getForClass(Void.class),
-          TypeExtractor.getForClass(Record.class)));
+    MapOperator<Record, Tuple2<Void, Record>> recordsInTuples = generateRecords(env,
+      Integer.valueOf(numberOfRecords))
+      .map(record -> new Tuple2<Void, Record>(null, record))
+      .returns(new TupleTypeInfo<>(TypeExtractor.getForClass(Void.class),
+        TypeExtractor.getForClass(Record.class)));
+
     writeParquet(recordsInTuples, filenamePrefix);
 
     env.execute();
@@ -56,8 +60,8 @@ public class ParquetWrite {
     data.output(hadoopOutputFormat);
   }
 
-  private static DataSource<Record> generateRecords(ExecutionEnvironment env) {
-    List<Record> records = IntStream.range(0, 1000).mapToObj(i -> {
+  private static DataSource<Record> generateRecords(ExecutionEnvironment env, Integer numberOgRecords) {
+    List<Record> records = IntStream.range(0, numberOgRecords).mapToObj(i -> {
       Record record = new Record();
       record.setRow(String.format("Flink made this file. Number of row: %s", i));
       return record;

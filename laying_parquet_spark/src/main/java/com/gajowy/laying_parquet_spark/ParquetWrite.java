@@ -20,7 +20,7 @@ public class ParquetWrite {
     new StructField[] { new StructField("row", DataTypes.StringType, true, Metadata.empty()) });
 
   public static void main(String[] args) {
-    if (args.length < 1) {
+    if (args.length < 2) {
       System.exit(1);
     }
 
@@ -28,13 +28,13 @@ public class ParquetWrite {
 
     SQLContext sqlContext = new SQLContext(spark);
 
-    List<Row> records = IntStream.range(0, 1000).boxed()
+    List<Row> records = IntStream.range(0, Integer.valueOf(args[1])).boxed()
       .map(i -> String.format("Spark created this file. Line no. %s", i)).map(RowFactory::create)
       .collect(Collectors.toList());
 
     Dataset dataset = sqlContext.createDataFrame(records, schema);
     dataset.write().parquet(args[0]);
-    dataset.show();
+    dataset.show(1000, false);
     spark.close();
   }
 }
